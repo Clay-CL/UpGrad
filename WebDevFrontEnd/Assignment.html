@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="materialbuttoncss.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="tablecss.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -17,8 +18,6 @@
 			$("#snkbar").hide();
 			$("#frm").hide();
 			$(".FAB").click(function(){
-
-				// $("#snkbar").slideDown().delay(2000).slideUp();
 				$("#frm").slideToggle();
 				c=1;
 				if($("#plus").text()=="clear")
@@ -30,6 +29,7 @@
 
 
 			$("#frm1").submit(function(){
+
 				$("#snkbar").slideDown().delay(2000).slideUp();
 			});
 
@@ -45,23 +45,13 @@
 
 			});
 
+			$(".del").click(function(){
 
+			});
 
 			
 
 		});
-
-		function show(){
-				// $("#frm").slideUp(function(){
-				// 	$("#snkbar").slideDown().delay(2000).slideUp();
-				// 	$("#plus").text("add");
-				// });
-				 sh();
-
-			}
-			function sh(){
-				$("#snkbar").slideDown().delay(2000).slideUp();
-			}
 
 
 
@@ -94,6 +84,54 @@
   </form>
   
 </div>
+
+<center>
+	<div id="demo">
+  <div class="table-responsive-vertical shadow-z-1">
+  <!-- Table starts here -->
+  <table id="table" class="table table-hover table-mc-light-blue" style="font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+  font-style: normal;
+  font-weight: 30;
+  font-size: 1.0rem;
+  line-height: 2rem;
+  letter-spacing: 0.01rem;
+  color: rgba(0,0,0,0.7);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-title="ID">1</td>
+          <td data-title="Name">John</td>
+          <td data-title="Status">+91-9865456700</td>
+          <td style="text-align: center;" class="del"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
+        </tr>
+        <tr>
+          <td data-title="ID">2</td>
+          <td data-title="Name">Ivan</td>
+          <td data-title="Status">+91-9865456344</td>
+          <td style="text-align: center;" class="del"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
+        </tr>
+        <tr>
+          <td data-title="ID">3</td>
+          <td data-title="Name">Melvin</td>
+          <td data-title="Status">+91-986545546</td>
+          <td style="text-align: center;" class="del"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</center>
+
 
 
 <section class="FAB">
