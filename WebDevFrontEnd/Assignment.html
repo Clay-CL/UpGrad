@@ -12,7 +12,6 @@
 </head>
 <body>
 
-
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#snkbar").hide();
@@ -24,38 +23,46 @@
 					$("#plus").text("add");
 				else
 					$("#plus").text("clear");
-
 			});
-
-
-			$("#frm1").submit(function(){
-
+			$("#btnok").click(function(){
+				rowCount = $("#table tr").length;
+				var name=$("#nm").val();
+				var phno=$("#phno").val();
+        		var row = '<tr>'+
+				          '<td data-title="ID" class="sn">'+(rowCount++)+'</td>'+
+				          '<td data-title="Name">'+name+'</td>'+
+				          '<td data-title="Status">'+phno+'</td>'+
+				          '<td style="text-align: center;" class="del" onclick="deltr(this)"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>'+'</tr>';
+    			$("#table").append(row);
+				$("#frm").slideUp();
+                $("#plus").text("add");
 				$("#snkbar").slideDown().delay(2000).slideUp();
+				document.forms["frm1"].reset();
+
 			});
-
-
-			
-
-
 			$(window).click(function(){
 				if($("#frm").is(":visible") && !$('.FAB').is(":hover") && !$('#frm').is(":hover")){
                     $("#frm").slideUp();
                     $("#plus").text("add");
                 }
-
 			});
-
-			$(".del").click(function(){
-
-			});
-
-			
-
 		});
 
 
+		function deltr(c){
+			$(c).parents("tr").remove();
+			updateDat();
+			
+		}
 
+		function updateDat(){
+			var i = 1;
+			var t = document.getElementById('table');
 
+			$("#table tr").each(function() {
+				$(t.rows[i].cells[0]).text(i++);
+			});
+		}
 	</script>
 
 
@@ -66,23 +73,20 @@
   <form id="frm1">
     
     <div class="group">      
-      <input type="text" required>
+      <input type="text" required id="nm">
       <span class="highlight"></span>
       <span class="bar"></span>
       <label>Name</label>
     </div>
-      
     <div class="group">      
-      <input type="text" required>
+      <input type="text" required id="phno">
       <span class="highlight"></span>
       <span class="bar"></span>
       <label>Phone Number</label>
     </div>
-
-    <button class="pure-material-button-contained" id="btnok">ADD</button>
-    
   </form>
   
+    <button class="pure-material-button-contained" id="btnok">ADD</button>
 </div>
 
 <center>
@@ -109,22 +113,22 @@
       </thead>
       <tbody>
         <tr>
-          <td data-title="ID">1</td>
+          <td data-title="ID" class="sn">1</td>
           <td data-title="Name">John</td>
           <td data-title="Status">+91-9865456700</td>
-          <td style="text-align: center;" class="del"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
+          <td style="text-align: center;" class="del" onclick="deltr(this)"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
         </tr>
         <tr>
-          <td data-title="ID">2</td>
-          <td data-title="Name">Ivan</td>
+          <td data-title="ID" class="sn">2</td>
+          <td data-title="Name">Ted</td>
           <td data-title="Status">+91-9865456344</td>
-          <td style="text-align: center;" class="del"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
+          <td style="text-align: center;" class="del" onclick="deltr(this)"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
         </tr>
         <tr>
-          <td data-title="ID">3</td>
-          <td data-title="Name">Melvin</td>
-          <td data-title="Status">+91-986545546</td>
-          <td style="text-align: center;" class="del"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
+          <td data-title="ID" class="sn">3</td>
+          <td data-title="Name">David</td>
+          <td data-title="Status">+91-9865455463</td>
+          <td style="text-align: center;" class="del" onclick="deltr(this)"><i class="material-icons" style="font-size:26px;opacity: 0.4;">delete</i></td>
         </tr>
       </tbody>
     </table>
