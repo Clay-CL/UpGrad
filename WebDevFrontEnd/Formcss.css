@@ -12,15 +12,12 @@
 	transition: 0.3s;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-h2 		 { 
+/*h2 		 { 
   text-align:center; 
-  margin-bottom:50px; 
-}
-h2 small { 
-  font-weight:normal; 
-  color:#888; 
-  display:block; 
-}
+  margin-bottom:50px;
+  width: 100%; 
+}*/
+
 
 .group 			  { 
   position:relative; 
@@ -72,7 +69,6 @@ input:focus ~ label, input:valid ~ label 		{
   right:50%; 
 }
 
-/* active state */
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
@@ -90,8 +86,6 @@ input:focus ~ .highlight {
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
 }
-
-/* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
 	from { background:#5264AE; }
   to 	{ width:0; background:transparent; }
